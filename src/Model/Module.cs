@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Netatmo.Net.Model
 {
@@ -22,7 +23,7 @@ namespace Netatmo.Net.Model
         [JsonProperty(PropertyName = "firmware")]
         public int Firmware { get; set; }
 
-        [JsonProperty(PropertyName = "last_message")]
+		[JsonConverter(typeof(UnixDateTimeConverter)),JsonProperty(PropertyName = "last_message")]
         public long LastMessage { get; set; }
 
         [JsonProperty(PropertyName = "last_seen")]
