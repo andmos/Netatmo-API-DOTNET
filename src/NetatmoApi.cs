@@ -42,7 +42,7 @@ namespace Netatmo.Net
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <param name="scopes"></param>
-        public async void Login(string email, string password, NetatmoScope[] scopes)
+		public async Task<OAuthAccessToken> Login(string email, string password, NetatmoScope[] scopes)
         {
             var content = HttpContentCreator.CreateLoginHttpContent(ClientId, ClientSecret, email, password, scopes);
             var response = await Request<OAuthAccessToken>(Urls.RequestTokenUrl, content, true);
@@ -56,6 +56,7 @@ namespace Netatmo.Net
             {
                 OnLoginFailed();
             }
+			return OAuthAccessToken;
         }
 
         /// <summary>
