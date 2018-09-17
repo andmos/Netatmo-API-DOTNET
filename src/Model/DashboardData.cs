@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Netatmo.Net.Model
 {
@@ -35,13 +34,13 @@ namespace Netatmo.Net.Model
         [JsonProperty(PropertyName = "GustStrength")]
         public int GustStrength { get; set; }
 
-		[JsonConverter(typeof(UnixDateTimeConverter)), JsonProperty(PropertyName = "date_max_temp")]
+        [JsonProperty(PropertyName = "date_max_temp")]
         public long DateMaxTemp { get; set; }
 
-		[JsonConverter(typeof(UnixDateTimeConverter)), JsonProperty(PropertyName = "date_min_temp")]
+        [JsonProperty(PropertyName = "date_min_temp")]
         public long DateMinTemp { get; set; }
 
-		[JsonConverter(typeof(UnixDateTimeConverter)),JsonProperty(PropertyName = "date_max_wind_str")]
+        [JsonProperty(PropertyName = "date_max_wind_str")]
         public long DateMaxWindStr { get; set; }
 
         [JsonProperty(PropertyName = "max_wind_angle")]
